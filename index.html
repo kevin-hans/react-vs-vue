@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.84.0">
+    <title>Product example · Bootstrap v5.0</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/product/">
+
+    
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+
+    
+    <!-- Custom styles for this template -->
+    <link href="product.css" rel="stylesheet">
+  </head>
+  <body>
+    
+
+<main>
+  <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
+    <div class="col-md-5 p-lg-5 mx-auto my-5">
+      <h1 class="display-10 fw-normal">React、Vueを利用して同じ機能を実現する
+      </h1>
+      <p class="lead fw-normal">コンポーネント定義、データ、イベント、属性などを研究</p>
+    </div>
+    <div class="product-device shadow-sm d-none d-md-block"></div>
+    <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
+  </div>
+
+  <div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
+    <div class="bg-light me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+      <div class="my-3 p-3">
+        <h2 class="display-5">計数器ーReact版</h2>
+        <p class="lead">State変更を反映</p>
+      </div>
+      <div class="bg-dark shadow-sm mx-auto text-white" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;">
+        <div id="counter_react">
+        </div>
+      </div>
+    </div>
+    <div class="bg-primary me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden">
+      <div class="my-3 py-3">
+        <h2 class="display-5">計数器ーVue版</h2>
+        <p class="lead">Data変更を反映</p>
+      </div>
+      <div class="bg-light shadow-sm mx-auto text-black" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;">
+        <div id="counter">
+          Vue Counter: {{ counter }}
+        </div>        
+      </div>
+    </div>
+  </div>
+
+
+  <div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
+    <div class="bg-dark me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden">
+      <div class="my-3 py-3">
+        <h2 class="display-5">Like Button-React版</h2>
+        <p class="lead">コンポーネントを定義し、複数箇所に利用</p>
+      </div>
+      <div class="bg-light shadow-sm mx-auto text-black" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;">
+      
+        <!-- <div id="like_button_container"></div> -->
+        <p>
+          This is the first comment.
+          <!-- We will put our React component inside this div. -->
+          <div class="like_button_container" data-commentid="1"></div>
+        </p>
+
+        <p>
+          This is the second comment.
+          <!-- We will put our React component inside this div. -->
+          <div class="like_button_container" data-commentid="2"></div>
+        </p>
+
+        <p>
+          This is the third comment.
+          <!-- We will put our React component inside this div. -->
+          <div class="like_button_container" data-commentid="3"></div>
+        </p>      
+      
+      </div>
+    </div>
+    <div class="bg-light me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+      <div class="my-3 p-3">
+        <h2 class="display-5">Like Button-Vue版</h2>
+        <p class="lead">コンポーネントを定義し、複数箇所に利用</p>
+      </div>
+      <div class="bg-dark shadow-sm mx-auto text-white" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;">
+      
+        <p>
+          This is the first comment.
+          <!-- We will put our React component inside this div. -->
+          <div class="like_button_container_vue" data-commentid="1"></div>
+        </p>
+        
+        <p>
+          This is the second comment.
+          <!-- We will put our React component inside this div. -->
+          <div class="like_button_container_vue" data-commentid="2"></div>
+        </p>
+        
+        <p>
+          This is the third comment.
+          <!-- We will put our React component inside this div. -->
+          <div class="like_button_container_vue" data-commentid="3"></div>
+        </p>      
+      
+      
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
+    <div class="bg-light me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+      <div class="my-3 p-3">
+        <h2 class="display-5">複数データを複数行を表示ーReact版</h2>
+        <p class="lead">イベントを付ける</p>
+      </div>
+      <div class="bg-body shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;">
+        <div id="todo-list-app-react">
+          produced by react
+        </div>     
+      </div>
+    </div>
+    <div class="bg-light me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+      <div class="my-3 py-3">
+        <h2 class="display-5">複数データを複数行を表示ーVue版</h2>
+        <p class="lead">イベントを付ける</p>
+      </div>
+      <div class="bg-body shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;">
+      
+        <div id="todo-list-app-vue">
+          produced by vue
+        </div>  
+      
+      </div>
+    </div>
+  </div>
+
+  <div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
+    <div class="bg-light me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+      <div class="my-3 p-3">
+        <h2 class="display-5">タグ属性設定-React版</h2>
+        <p class="lead">関数型コンポーネント定義</p>
+      </div>
+      <div class="bg-body shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;">
+  
+        <div id="bind-attribute-react">
+        </div>    
+      
+      </div>
+    </div>
+    <div class="bg-light me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+      <div class="my-3 py-3">
+        <h2 class="display-5">タグ属性設定-Vue版</h2>
+        <p class="lead">ディレクティブBindを利用しコンポーネント定義</p>
+      </div>
+      <div class="bg-body shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;">
+
+        <div id="bind-attribute">
+          <span v-bind:title="message">
+            マスクをオバーしたら情報をポップアップする！By Vue
+          </span>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  <script src="https://unpkg.com/vue@next"></script>
+
+  <!-- 加载我们的 React 组件。-->
+  <script src="react_episode.js" type="text/babel" ></script>
+
+  <script type="x-template" id="todo-component">
+      <h3>produced by vue</h3>
+      <ol style="px-2">
+        <todo-item class="list-group-item" @click="greet(item, $event)"
+          v-for="item in groceryList"
+          v-bind:todo="item"
+          v-bind:key="item.id"
+        ></todo-item>
+      </ol>
+  </script>
+
+  <script type="x-template" id="vue-like-template">
+    <button v-if="!liked" @click="toggle">
+      Like by vue
+    </button>
+    <template v-else>You liked comment number {{ commentID }}</template>
+  </script>
+
+
+  <script src="vue_episode.js" ></script>
+
+  </body>
+</html>
