@@ -20,6 +20,30 @@ const Counter = {
 Vue.createApp(Counter).mount('#counter')
 
 
+// Likeコンポーネントを定義
+const likeComponent = {
+  props: ['commentID'],
+  template: '#vue-like-template',
+  data() {
+      return {
+          liked: false
+      }
+  },
+  methods: {
+      toggle(event) {
+          this.liked = !this.liked;
+      }
+  }
+}
+
+// Likeコンポーネントマウント
+document.querySelectorAll('.like_button_container_vue')
+.forEach(domContainer => {
+  // Read the comment ID from a data-* attribute.
+  const commentID = parseInt(domContainer.dataset.commentid, 10);
+  Vue.createApp(likeComponent, { commentID: commentID }).mount(domContainer)
+});
+
 // 一覧表示
 const VegetableItemVue = {
     props: ['item'],
@@ -51,32 +75,6 @@ const VegetableItemListVue = {
     }  
 }
 Vue.createApp(VegetableItemListVue).mount('#vegetable-list-app-vue')
-
-
-// Likeコンポーネントを定義
-const likeComponent = {
-    props: ['commentID'],
-    template: '#vue-like-template',
-    data() {
-        return {
-            liked: false
-        }
-    },
-    methods: {
-        toggle(event) {
-            this.liked = !this.liked;
-        }
-    }
-}
-
-// Likeコンポーネントマウント
-document.querySelectorAll('.like_button_container_vue')
-  .forEach(domContainer => {
-    // Read the comment ID from a data-* attribute.
-    const commentID = parseInt(domContainer.dataset.commentid, 10);
-    Vue.createApp(likeComponent, { commentID: commentID }).mount(domContainer)
-  });
-
 
 // マウスオーバー時情報を提示
 const AttributeBinding = {
