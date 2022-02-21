@@ -142,7 +142,7 @@
         <p class="lead">イベントを付ける</p>
       </div>
       <div class="bg-body shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;">
-        <div id="todo-list-app-react">
+        <div id="vegetable-list-app-react">
           produced by react
         </div>     
       </div>
@@ -154,7 +154,7 @@
       </div>
       <div class="bg-body shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;">
       
-        <div id="todo-list-app-vue">
+        <div id="vegetable-list-app-vue">
           produced by vue
         </div>  
       
@@ -202,14 +202,14 @@
   <!-- 加载我们的 React 组件。-->
   <script src="react_episode.js" type="text/babel" ></script>
 
-  <script type="x-template" id="todo-component">
+  <script type="x-template" id="vegetable-component">
       <h3>produced by vue</h3>
-      <ol style="px-2">
-        <todo-item class="list-group-item" @click="greet(item, $event)"
+      <ol class="px-2">
+        <VegetableItemVue class="list-group-item" @click="greet(item, $event)"
           v-for="item in groceryList"
-          v-bind:todo="item"
+          v-bind:item="item"
           v-bind:key="item.id"
-        ></todo-item>
+        ></VegetableItemVue>
       </ol>
   </script>
 

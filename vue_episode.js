@@ -1,3 +1,6 @@
+'use strict';
+
+// 計数器
 const Counter = {
     data() {
       return {
@@ -5,32 +8,26 @@ const Counter = {
       }
     },
     mounted() {
-      setInterval(() => {
+      this.intervalId = setInterval(() => {
         this.counter++
       }, 1000)
+    },
+    unmounted () {
+      clearInterval(this.intervalId);
     }
 }
 
 Vue.createApp(Counter).mount('#counter')
 
-const AttributeBinding = {
-    data() {
-      return {
-        message: 'You loaded this page on ' + new Date().toLocaleString()
-      }
-    }
-}
-  
-Vue.createApp(AttributeBinding).mount('#bind-attribute')
 
-
-const TodoItem = {
-    props: ['todo'],
-    template: `<li>{{ todo.text }}</li>`,
+// 一覧表示
+const VegetableItemVue = {
+    props: ['item'],
+    template: `<li>{{ item.text }}</li>`,
 }
 
-const TodoItem2 = {
-    template: '#todo-component',
+const VegetableItemListVue = {
+    template: '#vegetable-component',
     data() {
         return {
           groceryList: [
@@ -41,7 +38,7 @@ const TodoItem2 = {
         }
     },
     components: {
-        TodoItem
+        VegetableItemVue
     },
     methods: {
         greet(params, event) {
@@ -53,11 +50,10 @@ const TodoItem2 = {
         }
     }  
 }
-const app2 = Vue.createApp(TodoItem2)
-app2.mount('#todo-list-app-vue')
+Vue.createApp(VegetableItemListVue).mount('#vegetable-list-app-vue')
 
 
-// Likeコンポーネント作成
+// Likeコンポーネントを定義
 const likeComponent = {
     props: ['commentID'],
     template: '#vue-like-template',
@@ -74,12 +70,21 @@ const likeComponent = {
 }
 
 // Likeコンポーネントマウント
-const app3 = Vue.createApp(likeComponent)
-app3.mount('#vue-like-demo')
 document.querySelectorAll('.like_button_container_vue')
   .forEach(domContainer => {
     // Read the comment ID from a data-* attribute.
     const commentID = parseInt(domContainer.dataset.commentid, 10);
-    const app4 = Vue.createApp(likeComponent, { commentID: commentID })
-    app4.mount(domContainer)
+    Vue.createApp(likeComponent, { commentID: commentID }).mount(domContainer)
   });
+
+
+// マウスオーバー時情報を提示
+const AttributeBinding = {
+  data() {
+    return {
+      message: 'You loaded this page on ' + new Date().toLocaleString()
+    }
+  }
+}
+
+Vue.createApp(AttributeBinding).mount('#bind-attribute')

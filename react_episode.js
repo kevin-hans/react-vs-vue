@@ -2,6 +2,7 @@
 
 const e = React.createElement;
 
+// 計数器
 class CounterR extends React.Component {
   constructor(props) {
     super(props);
@@ -28,6 +29,8 @@ class CounterR extends React.Component {
 const domContainer = document.querySelector('#counter_react');
 ReactDOM.render(e(CounterR), domContainer);
 
+
+// Likeコメント
 class LikeButton extends React.Component {
   constructor(props) {
     super(props);
@@ -58,15 +61,15 @@ document.querySelectorAll('.like_button_container')
     );
   });
 
-// const domContainer2 = document.querySelector('#like_button_container');
-// ReactDOM.render(e(LikeButton), domContainer2);
-function TodoItemReact(props) {
+
+// 一覧表示  
+function VegetableItemReact(props) {
   return (
-    <li>124 { props.todo } </li>
+    <li className="list-group-item" >{ props.item.text } </li>
    );
 }
 
-class TodoItemListReact extends React.Component {
+class VegetableItemListReact extends React.Component {
   constructor(props) {
     super(props);
     this.state = { groceryList: [] };
@@ -93,7 +96,7 @@ class TodoItemListReact extends React.Component {
 
   render() {
     var todolist = this.state.groceryList.map(e => {
-        return <li className="list-group-item" key={e.id} onClick={event => this.greet(e, event)} >{e.text}</li>;    
+        return <VegetableItemReact item= {e}  key={e.id}  onClick={event => this.greet(e, event)} >{e.text}</VegetableItemReact>;       
       }
     )
     return (
@@ -105,10 +108,10 @@ class TodoItemListReact extends React.Component {
     }
 }
 
-const domContainer3 = document.querySelector('#todo-list-app-react');
-ReactDOM.render(e(TodoItemListReact), domContainer3);
+const domContainer3 = document.querySelector('#vegetable-list-app-react');
+ReactDOM.render(e(VegetableItemListReact), domContainer3);
 
-
+// マウスオーバー時情報を提示
 function BindAttributeComponentR(props) {
   return (
     <span title={props.title}>
