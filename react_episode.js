@@ -65,7 +65,7 @@ document.querySelectorAll('.like_button_container')
 // 一覧表示  
 function VegetableItemReact(props) {
   return (
-    <li className="list-group-item" >{ props.item.text } </li>
+    <li className="list-group-item" onClick={ props.clickHandler }>{ props.item.text } </li>
    );
 }
 
@@ -87,6 +87,7 @@ class VegetableItemListReact extends React.Component {
   }
 
   greet(params, event) {
+    console.log(event);
     alert(params.text)
     // `event` is the native DOM event
     if (event) {
@@ -96,7 +97,7 @@ class VegetableItemListReact extends React.Component {
 
   render() {
     var todolist = this.state.groceryList.map(e => {
-        return <VegetableItemReact item= {e}  key={e.id}  onClick={event => this.greet(e, event)} >{e.text}</VegetableItemReact>;       
+        return <VegetableItemReact item= {e}  key={e.id}  clickHandler={event => { this.greet(e, event) }} >{e.text}</VegetableItemReact>;       
       }
     )
     return (
